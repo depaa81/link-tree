@@ -14,6 +14,8 @@
   </style>
 </head>
 <body class="flex items-center justify-center min-h-screen text-white px-4">
+
+  <!-- Kontainer -->
   <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 w-full max-w-sm text-center shadow-xl">
     <img src="https://files.catbox.moe/9hw9ui.png" alt="Avatar" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-md">
     <h1 class="text-2xl font-bold mt-4">depa</h1>
@@ -49,5 +51,18 @@
       </a>
     </div>
   </div>
+
+  <!-- Audio -->
+  <audio id="bg-music" src="music.mp3"></audio> <!-- ganti 'music.mp3' dengan link file musik kamu -->
+
+  <script>
+    document.body.addEventListener('click', function() {
+      const audio = document.getElementById('bg-music');
+      if (audio.paused) {
+        audio.play().catch(err => console.log('Audio play blocked:', err));
+      }
+    });
+  </script>
+
 </body>
 </html>
