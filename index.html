@@ -53,16 +53,31 @@
         Web-app
       </a>
     </div>
+
+    <!-- Tombol Music -->
+    <button id="music-btn" class="mt-6 w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition">
+      🎵 Play Music
+    </button>
   </div>
 
   <!-- Audio -->
-  <audio id="bg-music" src="music.mp3"></audio> <!-- ganti 'music.mp3' dengan link file musik kamu -->
+  <audio id="bg-music" src="music.mp3" loop></audio> 
+  <!-- ganti 'music.mp3' dengan link musik kamu -->
 
   <script>
-    document.body.addEventListener('click', function() {
-      const audio = document.getElementById('bg-music');
-      if (audio.paused) {
+    const musicBtn = document.getElementById('music-btn');
+    const audio = document.getElementById('bg-music');
+    let isPlaying = false;
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        musicBtn.textContent = "🎵 Play Music";
+        isPlaying = false;
+      } else {
         audio.play().catch(err => console.log('Audio play blocked:', err));
+        musicBtn.textContent = "⏸ Pause Music";
+        isPlaying = true;
       }
     });
   </script>
